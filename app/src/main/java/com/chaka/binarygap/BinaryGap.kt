@@ -33,6 +33,9 @@ class BinaryGap {
             val binary = Integer.toBinaryString(it)
             val values = "1".toRegex().findAll(binary).toList()
 
+            values.forEach {
+
+            }
             var i = 0
             while (i < values.size - 1) {
 
