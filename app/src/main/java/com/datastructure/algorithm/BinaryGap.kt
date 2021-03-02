@@ -1,4 +1,4 @@
-package com.chaka.binarygap
+package com.datastructure.algorithm
 
 class BinaryGap {
 

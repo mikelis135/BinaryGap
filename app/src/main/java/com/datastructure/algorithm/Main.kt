@@ -1,4 +1,4 @@
-package com.chaka.binarygap
+package com.datastructure.algorithm
 
 fun main() {
 //    BinaryGap().start()
@@ -12,6 +12,6 @@ fun main() {
     links.show()
     print("\n")
 
-    links.insertAt(4, 15)
+    links.insertAt(2, 15)
     links.show()
 }

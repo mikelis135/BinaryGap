@@ -1,9 +1,8 @@
-package com.chaka.binarygap
+package com.datastructure.algorithm
 
 class Links {
 
     var head: Node? = null
-    var currentHead: Node? = null
 
     private fun Node.create(data: Int, next: Node?): Node? {
         this.data = data
@@ -12,7 +11,8 @@ class Links {
     }
 
     fun insert(data: Int) {
-        currentHead = head
+
+        var currentHead = head
         val node = Node().create(data, null)
 
         if (head == null) {
@@ -20,20 +20,20 @@ class Links {
         } else {
 
             while (currentHead?.next != null) {
-                currentHead = currentHead?.next
+                currentHead = currentHead.next
             }
             currentHead?.next = node
 
         }
-        println(head.toString() + "\n")
     }
 
     fun show() {
 
-        currentHead = head
+        var currentHead = head
+
         while (currentHead?.next != null) {
-            println(currentHead?.data)
-            currentHead = currentHead?.next
+            print(currentHead.data.toString() +"->")
+            currentHead = currentHead.next
         }
         println(currentHead?.data)
     }
@@ -42,22 +42,21 @@ class Links {
 
         var nodePosition = 0
 
-        currentHead = head
-        println(currentHead.toString())
+        var currentHead = head
+
         val node = Node().create(data, null)
 
         if (currentHead == null || position == 0) {
             node?.next = currentHead
-            currentHead = node
             head = currentHead
         } else {
             while (currentHead?.data != null) {
-                if (nodePosition == position-1) {
-                    node?.next = currentHead?.next
-                    currentHead?.next = node
+                if (nodePosition == position - 1) {
+                    node?.next = currentHead.next
+                    currentHead.next = node
                     break
                 }
-                currentHead = currentHead?.next
+                currentHead = currentHead.next
                 nodePosition++
             }
 
