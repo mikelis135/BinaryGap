@@ -17,6 +17,8 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    //github login token cc76bec37a6d714dad3285867906da43a12b94a8
+
     buildTypes {
         release {
             minifyEnabled false
