@@ -2,15 +2,13 @@ package com.datastructure.algorithm
 
 class BinaryGap {
 
-    private val gaps = mutableListOf<Int>()
-
     fun start() {
 
         print("\nPlease enter a number : ")
 
         readLine()?.let { number ->
 
-            val gap = processGap(number)
+            val gap = solution(number)
 
             showResult(number, gap)
 
@@ -22,32 +20,34 @@ class BinaryGap {
 
     }
 
-    fun processGap(number: String): Int? {
-
-        gaps.clear()
+    private fun solution(number: String): Int? {
 
         number.toIntOrNull()?.let {
 
             if (it < 0) return null
 
-            val binary = Integer.toBinaryString(it)
-            val values = "1".toRegex().findAll(binary).toList()
+            val binary = Integer.toBinaryString(it).map { it.toString() }.toTypedArray()
 
-            values.forEach {
+            var tempOne = 0
+            var binaryGap = 0
+
+            binary.forEachIndexed { index, element ->
+
+                val position = index + 1
+
+                if (element == "1") {
+
+                    val numberOfZeros = position - (tempOne + 1)
+
+                    tempOne = position
+
+                    if (binaryGap < numberOfZeros) binaryGap = numberOfZeros
+
+                }
 
             }
-            var i = 0
-            while (i < values.size - 1) {
 
-                val nextValue = values[i + 1].getValue()
-                val value = values[i].getValue()
-                gaps.add(nextValue - value - 1)
-
-                ++i
-            }
-
-            return gaps.max() ?: 0
-
+            return binaryGap
         } ?: kotlin.run {
             print("Oops, please enter a valid number\n\n")
             return null
@@ -64,8 +64,6 @@ class BinaryGap {
             )
         }
     }
-
-    fun MatchResult.getValue() = this.range.min().toString().toInt()
 
 }
 
