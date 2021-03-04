@@ -35,7 +35,10 @@ class Stack {
      */
 
     fun peek() {
-        println(stack[top-1])
+        if (top > 0) println(stack[top - 1]) else {
+            stack = arrayOfNulls(top + 1)
+            println(stack[top])
+        }
     }
 
 
@@ -81,8 +84,8 @@ class Stack {
      * Copy array
      */
 
-    private fun copyArray(temp: Array<Int?>, stack: Array<Int?>, pop : Int=0): Array<Int?> {
-        for (i in 0..stack.size-1-pop) temp[i] = stack[i]
+    private fun copyArray(temp: Array<Int?>, stack: Array<Int?>, pop: Int = 0): Array<Int?> {
+        for (i in 0..stack.size - 1 - pop) temp[i] = stack[i]
         return temp
     }
 }
