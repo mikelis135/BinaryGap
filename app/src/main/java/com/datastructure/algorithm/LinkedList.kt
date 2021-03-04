@@ -1,6 +1,8 @@
 package com.datastructure.algorithm
 
-class Links {
+//https://youtu.be/SMIq13-FZSE
+
+class LinkedList {
 
     var head: Node? = null
 
