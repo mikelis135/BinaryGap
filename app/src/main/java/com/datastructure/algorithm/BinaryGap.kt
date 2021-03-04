@@ -26,7 +26,7 @@ class BinaryGap {
 
             if (it < 0) return null
 
-            val binary = Integer.toBinaryString(it).map { it.toString() }.toTypedArray()
+            val binary = Integer.toBinaryString(it).split("").toTypedArray()
 
             var tempOne = 0
             var binaryGap = 0
