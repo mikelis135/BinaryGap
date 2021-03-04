@@ -6,16 +6,18 @@ class Stack {
 
     private var stack = arrayOfNulls<Int>(1)
     private var temp = arrayOfNulls<Int>(1)
-    private var top = -1
+    private var index = 0
+    private var top = 0
 
     /**
      * Add to stack
      */
 
-    fun push(data: Int) {
+    fun push(value: Int) {
+        index = top
+        val stack = getStack(index)
+        stack[index] = value
         top++
-        val stack = getStack(top)
-        stack[top] = data
     }
 
     /**
@@ -23,7 +25,32 @@ class Stack {
      */
 
     fun pop() {
-        if (top < 0) throw IndexOutOfBoundsException() else stack[top] = null
+        temp = arrayOfNulls(index)
+        stack = copyArray(temp, stack, 1)
+        top--
+    }
+
+    /**
+     * Show top item
+     */
+
+    fun peek() {
+        println(stack[top-1])
+    }
+
+
+    /**
+     * is stack empty
+     */
+
+    fun isEmpty() = stack.isEmpty()
+
+    /**
+     * is stack empty
+     */
+
+    fun size() {
+        println(stack.size)
     }
 
     /**
@@ -41,7 +68,7 @@ class Stack {
     private fun getStack(currentSize: Int): Array<Int?> {
 
         return if (currentSize >= stack.size) {
-            temp = arrayOfNulls(top * 2)
+            temp = arrayOfNulls(index + 1)
             stack = copyArray(temp, stack)
             stack
         } else {
@@ -54,8 +81,8 @@ class Stack {
      * Copy array
      */
 
-    private fun copyArray(temp: Array<Int?>, stack: Array<Int?>): Array<Int?> {
-        for (i in stack.indices) temp[i] = stack[i]
+    private fun copyArray(temp: Array<Int?>, stack: Array<Int?>, pop : Int=0): Array<Int?> {
+        for (i in 0..stack.size-1-pop) temp[i] = stack[i]
         return temp
     }
 }
