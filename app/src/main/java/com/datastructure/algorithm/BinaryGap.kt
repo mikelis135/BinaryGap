@@ -2,52 +2,51 @@ package com.datastructure.algorithm
 
 class BinaryGap {
 
+    val searchOne = mutableListOf<Int>()
+
     fun start() {
 
         print("\nPlease enter a number : ")
 
         readLine()?.let { number ->
 
-            val gap = solution(number)
+            val gap = processGap(number)
 
             showResult(number, gap)
 
-            print("Press ENTER to restart Binary Gap, any other thing to close ")
-
-            readLine()?.let { if (it == "") start() }
+            start()
 
         } ?: print("Oops, Cannot read input, please retry")
 
     }
 
-    private fun solution(number: String): Int? {
+    private fun processGap(number: String): Int? {
+
+        var gaps = 0
+        var i = 0
 
         number.toIntOrNull()?.let {
 
             if (it < 0) return null
 
-            val binary = Integer.toBinaryString(it).split("")
+            val binary = Integer.toBinaryString(it)
 
-            var tempOne = 0
-            var binaryGap = 0
+            println(binary)
 
-            binary.forEachIndexed { index, element ->
+            val values = indexAllOnes(binary)
 
-                val position = index + 1
+            while (i < values.size - 1) {
 
-                if (element == "1") {
+                val nextValue = values[i + 1]
+                val value = values[i]
 
-                    val numberOfZeros = position - (tempOne + 1)
+                if (gaps < nextValue - value) gaps = nextValue - value - 1
 
-                    tempOne = position
-
-                    if (binaryGap < numberOfZeros) binaryGap = numberOfZeros
-
-                }
-
+                ++i
             }
 
-            return binaryGap
+            return gaps
+
         } ?: kotlin.run {
             print("Oops, please enter a valid number\n\n")
             return null
@@ -60,9 +59,20 @@ class BinaryGap {
             print(
                 "$number has $it ${if (it == 1) "gap" else {
                     "gaps"
-                }} \n\n"
+                }} \n"
             )
         }
+    }
+
+    private fun indexAllOnes(number: String): List<Int> {
+
+        searchOne.clear()
+
+        number.split("").forEachIndexed { index, it ->
+            if (it == "1") searchOne.add(index)
+        }
+
+        return searchOne
     }
 
 }
