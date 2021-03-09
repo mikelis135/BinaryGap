@@ -18,6 +18,6 @@ fun main() {
 ////    queue.dequeue()
 //    queue.show()
 
-    MergeSort().sort(arrayOf(3,2,10,1,6))
+    MergeSortZero().sort(arrayOf(3, 2, 10, 1, 6, -1, 0, 0))
 
 }
