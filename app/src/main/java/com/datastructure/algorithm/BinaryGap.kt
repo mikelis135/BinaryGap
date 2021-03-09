@@ -2,7 +2,7 @@ package com.datastructure.algorithm
 
 class BinaryGap {
 
-    val searchOne = mutableListOf<Int>()
+    private val searchOne = mutableListOf<Int>()
 
     fun start() {
 
@@ -33,16 +33,17 @@ class BinaryGap {
 
             println(binary)
 
-            val values = indexAllOnes(binary)
+            indexAllOnes(binary).let {
 
-            while (i < values.size - 1) {
+                while (i < it.size - 1) {
 
-                val nextValue = values[i + 1]
-                val value = values[i]
+                    val nextValue = it[i + 1]
+                    val value = it[i]
 
-                if (gaps < nextValue - value) gaps = nextValue - value - 1
+                    if (gaps < nextValue - value) gaps = nextValue - value - 1
 
-                ++i
+                    ++i
+                }
             }
 
             return gaps
