@@ -2,8 +2,17 @@ package com.datastructure.algorithm
 
 fun main() {
 //    BinaryGap().start()
+
+//    val reverse = ReverseLinkedList()
+////
 //    val links = LinkedList()
-//    links.insert(15)
+//    links.insert(1)
+//    links.insert(2)
+//    links.insert(3)
+//    links.insert(4)
+//    links.insert(3)
+//    links.insert(1)
+//    links.insert(13)
 //    val stack = Stack()
 //    stack.push(10)
 
@@ -18,6 +27,17 @@ fun main() {
 ////    queue.dequeue()
 //    queue.show()
 
-    MergeSortZero().sort(arrayOf(3, 2, 10, 1, 6, -1, 0, 0))
 
+//    val node = reverse.reverse(links)
+//    reverse.show(node)
+
+//    MergeSort().sort(arrayOf(3, 2, 10, 1, 6, -1, 0, 0))
+
+    val binaryNode = BinaryNode()
+    binaryNode.insert(2)
+    binaryNode.insert(5)
+    binaryNode.insert( 1)
+    binaryNode.insert( 10)
+    binaryNode.insert( 3)
+    binaryNode.showNode()
 }

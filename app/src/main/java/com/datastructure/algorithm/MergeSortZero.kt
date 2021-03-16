@@ -1,8 +1,15 @@
 package com.datastructure.algorithm
 
+//https://youtu.be/7LN9z140U90
+
 class MergeSortZero {
 
     private lateinit var numberArray: Array<Int>
+
+    /**
+     * get the array to sort to a variable array
+     * mergeSort array
+     */
 
     fun sort(numbers: Array<Int>) {
         numberArray = numbers
@@ -11,6 +18,13 @@ class MergeSortZero {
             println(it)
         }
     }
+
+    /**
+     * If low < high Get the middle
+     * MergeSort array from low to middle (left)
+     * MergeSort array from middle+1 to high (right)
+     * merge array
+     */
 
     private fun mergeSort(numberArray: Array<Int>, low: Int, high: Int) {
 
@@ -22,6 +36,13 @@ class MergeSortZero {
         }
 
     }
+
+    /**
+     * Set a temp array, copy all array to the temp array
+     * get variables, i,j,k, i from middle to high
+     * while i <= middle j<= high, if value in temp array is less, set the lesser value to the real array
+     * while
+     */
 
     private fun merge(numberArray: Array<Int>, low: Int, middle: Int, high: Int) {
         val tempArray = Array(numberArray.size) {0}

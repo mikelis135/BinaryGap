@@ -1,5 +1,8 @@
 package com.datastructure.algorithm
 
+import com.datastructure.algorithm.LinkedList.GetNodes.canTraverse
+import com.datastructure.algorithm.LinkedList.GetNodes.hasData
+
 //https://youtu.be/SMIq13-FZSE
 
 class LinkedList {
@@ -9,21 +12,39 @@ class LinkedList {
     /**
      * Create a node off of the data and next node parameter
      */
-    private fun Node.create(data: Int, next: Node?): Node? {
+    fun Node.create(data: Int, next: Node?): Node? {
         this.data = data
         this.next = next
         return this
     }
 
-    /**
-     * If Node has no next item, it can traverse
-     */
-    private fun Node?.canTraverse(): Boolean = this?.next != null
+    object GetNodes {
+        /**
+         * If Node has no next item, it can traverse
+         */
+        fun Node?.canTraverse(): Boolean = this?.next != null
 
-    /**
-     * If Node has data
-     */
-    private fun Node?.hasData(): Boolean = this?.data != null
+        /**
+         * If Node has data
+         */
+        fun Node?.hasData(): Boolean = this?.data != null
+
+        /**
+         * If Node has data
+         */
+        fun Node?.getSize(): Int {
+
+            var head = this
+            var count = 0
+            while (head.hasData()){
+                count++
+                head = head?.next
+            }
+
+            return count
+        }
+
+    }
 
     /**
      * Get the head
@@ -156,12 +177,12 @@ class LinkedList {
      * Traverse through the nodes and show data value
      */
 
-    fun show() {
+    fun show(head : Node?) {
 
         var currentHead = head
 
         while (currentHead.hasData()) {
-            print(currentHead?.data.toString() + "->")
+            print( currentHead?.data.toString() +  "->")
             currentHead = currentHead?.next
         }
     }
