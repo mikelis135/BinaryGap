@@ -43,6 +43,12 @@ class BinaryNode {
         }
     }
 
+    /**
+     * If you find the value return true
+     * If the data to search against is not null or less, if left of it is null return false else keep searching
+     * If the data to search against is not null or more, if right of it is null return false else keep searching
+     */
+
     fun contains(value: Int): Boolean {
         return if (value == data) true
         else if (data != null && value < data!!) {
