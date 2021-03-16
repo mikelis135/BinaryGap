@@ -147,28 +147,46 @@ class LinkedList {
     fun deleteAt(position: Int) {
 
         var nodePosition = 1
-        var currentHead = head
+        var currentNode = head
 
-        currentHead?.let {
+        currentNode?.let {
 
             if (position == 0) {
-                head = currentHead?.next
+                head = currentNode?.next
             } else {
-                while (currentHead.hasData()) {
+                while (currentNode.hasData()) {
                     if (nodePosition == position) {
-                        currentHead?.next?.data = null
-                        currentHead?.next = currentHead?.next?.next
+                        currentNode?.next?.data = null
+                        currentNode?.next = currentNode?.next?.next
                         break
                     }
-                    currentHead = currentHead?.next
+                    currentNode = currentNode?.next
                     nodePosition++
                 }
-                if (currentHead == null) println("Cannot delete node $position because node ${nodePosition - 1} is empty \n")
+                if (currentNode == null) println("Cannot delete node $position because node ${nodePosition - 1} is empty \n")
             }
         } ?: kotlin.run {
             if (position == 0) println("Cannot delete node $position on an empty list")
         }
 
+    }
+
+    fun reverse() : Node? {
+
+        if (head == null) return head
+        var prev : Node? =  null
+
+        var currentNode = head
+
+        while (currentNode.hasData()){
+            val nextNode = currentNode?.next
+            currentNode?.next = prev
+            prev = currentNode
+            currentNode = nextNode
+        }
+
+        show(prev)
+        return prev
     }
 
 
