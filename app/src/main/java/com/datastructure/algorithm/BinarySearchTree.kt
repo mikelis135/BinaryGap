@@ -18,7 +18,7 @@ class BinaryNode {
 
 
     /**
-     * Check if data is not null, if value to insert is less check if left node null, then create a node there, else insert there
+     * Check if data is not null, if value to insert is less or equal, check if left node null, then create a node there, else insert there
      * else if value to insert is more check if left node null, then create a node there, else insert there
      */
 
@@ -40,6 +40,24 @@ class BinaryNode {
                 right?.insert(value)
             }
 
+        }
+    }
+
+    fun contains(value: Int): Boolean {
+        return if (value == data) true
+        else if (data != null && value < data!!) {
+            if (left == null) false else left!!.contains(value)
+        } else {
+            if (right == null) false else right!!.contains(value)
+        }
+    }
+
+    fun contains(value: Int, node: BinaryNode): Boolean {
+        return if (value == node.data) true
+        else if (node.data != null && value < node.data!!) {
+            if (node.left == null) false else node.left!!.contains(value)
+        } else {
+            if (node.right == null) false else node.right!!.contains(value)
         }
     }
 

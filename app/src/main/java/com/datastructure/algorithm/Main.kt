@@ -40,4 +40,7 @@ fun main() {
     binaryNode.insert( 10)
     binaryNode.insert( 3)
     binaryNode.showNode()
+
+
+    print(binaryNode.contains(4, binaryNode))
 }
