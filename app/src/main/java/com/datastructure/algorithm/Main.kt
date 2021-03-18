@@ -4,15 +4,15 @@ fun main() {
 //    BinaryGap().start()
 
 
-
+    BreadthFirstSearch().start()
 //
-    val links = LinkedList()
-    links.insert(1)
-    links.insert(2)
-    links.insert(3)
-    links.insert(5)
-    links.insert(10)
-    links.reverse()
+//    val links = LinkedList()
+//    links.insert(1)
+//    links.insert(2)
+//    links.insert(3)
+//    links.insert(5)
+//    links.insert(10)
+//    links.reverse()
 
 
 //    links.insert(4)

@@ -171,6 +171,14 @@ class LinkedList {
 
     }
 
+
+    /**
+     * If head is null return head
+     * init a prev node and get the head
+     * if currentNode has data, get the next node
+     * set next node is prev, prev is currentNode and nextNode is currentNode
+     */
+
     fun reverse() : Node? {
 
         if (head == null) return head
