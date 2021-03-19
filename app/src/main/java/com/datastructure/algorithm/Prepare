@@ -4,3 +4,46 @@
 - Communicate, say assumptions, problem solving, don't be quite
 
 Android theory
+
+    val nodeMap = mutableMapOf<Int, Int>()
+    val sumCount = 0
+
+    //if root is null return
+    //check if node is on another level of the tree and reset the count and next map data
+    //recurse left of tree and recurse right of tree to further get the nodes and
+    //add them to the map
+
+
+    // 0 [5]
+    // 1 [10, 15]
+    // 2 [20, 20]
+
+    fun show(){
+
+       val tree = createTree()
+       traverse(tree, 0)
+
+       print(nodeMap.keys)
+
+       print(nodeMap.values)
+
+       nodeMap.values.forEach{
+         print(it.sum())
+       }
+
+    }
+
+    fun traverse(root : BFSNode, height : Int){
+
+        if (root == null) return root
+
+        if (height == root.size){
+            nodeMap[height] = mutableListOf()
+        }
+
+        nodeMap[height].add(root.data)
+
+        traverse(root.left, height +1)
+        traverse(root.right, height + 1)
+
+    }

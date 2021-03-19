@@ -7,9 +7,10 @@ class DepthFirstSearch {
 
     val queue: Queue<BFSNode> = LinkedList<BFSNode>()
     var nodeMap = mutableMapOf<Int, MutableList<Int>>()
+    var nodeMap2 = mutableMapOf<Int, Int>()
 
-    var sumCount = 0
     var count = 0
+    var sumCount = 0
 
     data class BFSNode(
         var data: Int,
@@ -21,13 +22,14 @@ class DepthFirstSearch {
         val a = BFSNode(5)
         val b = BFSNode(10)
         val c = BFSNode(15)
-        val d = BFSNode(20)
+        val d = BFSNode(5)
+        val e = BFSNode(10)
 
         a.left = b
         a.right = c
 
         b.left = d
-        b.right = d
+        b.right = e
 
         return a
     }
@@ -61,14 +63,28 @@ class DepthFirstSearch {
         queue.remove()
 
         traverse(bfsNode.left)
-        sumCount += bfsNode.left?.data ?: 0
         count++
 
         traverse(bfsNode.right)
-        sumCount += bfsNode.right?.data ?: 0
         count++
 
     }
+
+
+    /**
+     * Use a hashMap
+     * if height is map size, that is if node in a level is filled, add another list
+     * add data of node to the map list
+     */
+
+
+    /**
+     * 5 0[5]
+     *  10      15 1[10, 15]
+     *  5    10
+     *
+     * Depth First style for breadth first output
+     */
 
     fun sumTraverse(bfsNode: BFSNode?, height: Int) {
 
@@ -76,15 +92,31 @@ class DepthFirstSearch {
 
         if (height == nodeMap.size) {
             nodeMap[height] = mutableListOf()
-            sumCount = 0
         }
 
-        sumCount += bfsNode.data
         nodeMap[height]?.add(bfsNode.data)
 
         sumTraverse(bfsNode.left, height + 1)
 
         sumTraverse(bfsNode.right, height + 1)
+
+    }
+
+    fun sumTraverse2(bfsNode: BFSNode?, height: Int) {
+
+        if (bfsNode == null) return
+
+        if (height == nodeMap2.size) {
+            nodeMap2[height] = 0
+            sumCount= 0
+        }
+
+        sumCount += bfsNode.data
+        nodeMap2[height] = sumCount
+
+        sumTraverse2(bfsNode.left, height + 1)
+
+        sumTraverse2(bfsNode.right, height + 1)
 
     }
 
