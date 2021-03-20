@@ -49,7 +49,7 @@ class Queue {
      */
 
     fun show() {
-        for (item in queue) println(item)
+        for (item in queue) if (item != null) println(item)
     }
 
     /**
@@ -69,11 +69,12 @@ class Queue {
     }
 
     /**
-     * Copy array
+     * Copy array, return null if only 1 item in queue
      */
 
     private fun copyArray(temp: Array<Int?>, queue: Array<Int?>, dequeue: Int = 0): Array<Int?> {
-        for (i in 0..queue.size - 1-dequeue) temp[i] = queue[i+dequeue]
+        if (queue.size == 1 && dequeue == 1) return arrayOf(null)
+        for (i in 0..queue.size - 1 - dequeue) temp[i] = queue[i + dequeue]
         return temp
     }
 }

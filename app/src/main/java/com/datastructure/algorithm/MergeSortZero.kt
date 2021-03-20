@@ -45,7 +45,7 @@ class MergeSortZero {
      */
 
     private fun merge(numberArray: Array<Int>, low: Int, middle: Int, high: Int) {
-        val tempArray = Array(numberArray.size) {0}
+        val tempArray = Array(numberArray.size) { 0 }
 
         for (i in numberArray.indices) tempArray[i] = numberArray[i]
 

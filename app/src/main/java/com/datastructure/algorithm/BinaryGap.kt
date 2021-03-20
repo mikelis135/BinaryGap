@@ -4,6 +4,10 @@ class BinaryGap {
 
     private val searchOne = mutableListOf<Int>()
 
+    /**
+     * Read the number from the console, process the gap and print
+     */
+
     fun start() {
 
         print("\nPlease enter a number : ")
@@ -19,6 +23,12 @@ class BinaryGap {
         } ?: print("Oops, Cannot read input, please retry")
 
     }
+
+
+    /**
+     * converts the number to binary form, get the list of indexed 1
+     * compare the difference of the next value and the previous value the save the greater one
+     */
 
     private fun processGap(number: String): Int? {
 
@@ -64,6 +74,10 @@ class BinaryGap {
             )
         }
     }
+
+    /**
+     * split the number into separate character and get the index of all 1 into a list
+     */
 
     private fun indexAllOnes(number: String): List<Int> {
 

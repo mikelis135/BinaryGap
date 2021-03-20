@@ -36,7 +36,7 @@ class LinkedList {
 
             var head = this
             var count = 0
-            while (head.hasData()){
+            while (head.hasData()) {
                 count++
                 head = head?.next
             }
@@ -179,14 +179,14 @@ class LinkedList {
      * set next node is prev, prev is currentNode and nextNode is currentNode
      */
 
-    fun reverse() : Node? {
+    fun reverse(): Node? {
 
         if (head == null) return head
-        var prev : Node? =  null
+        var prev: Node? = null
 
         var currentNode = head
 
-        while (currentNode.hasData()){
+        while (currentNode.hasData()) {
             val nextNode = currentNode?.next
             currentNode?.next = prev
             prev = currentNode
@@ -203,12 +203,12 @@ class LinkedList {
      * Traverse through the nodes and show data value
      */
 
-    fun show(head : Node?) {
+    fun show(head: Node?) {
 
         var currentHead = head
 
         while (currentHead.hasData()) {
-            print( currentHead?.data.toString() +  "->")
+            print(currentHead?.data.toString() + "->")
             currentHead = currentHead?.next
         }
     }

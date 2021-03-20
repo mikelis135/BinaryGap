@@ -9,7 +9,6 @@ class DepthFirstSearch {
     var nodeMap = mutableMapOf<Int, MutableList<Int>>()
     var nodeMap2 = mutableMapOf<Int, Int>()
 
-    var count = 0
     var sumCount = 0
 
     data class BFSNode(
@@ -36,20 +35,23 @@ class DepthFirstSearch {
 
     fun start() {
         val tree = createTree()
-        sumTraverse(tree, 0)
-        println(nodeMap)
-        println(nodeMap.keys)
-        println(nodeMap.values)
-        nodeMap.values.forEach {
-            println(it.sum())
-        }
+
+        traverse(tree)
+
+//        sumTraverse(tree, 0)
+//        println(nodeMap)
+//        println(nodeMap.keys)
+//        println(nodeMap.values)
+//        nodeMap.values.forEach {
+//            println(it.sum())
+//        }
 
     }
 
     /**
-     * Use a queue system
-     * Add the root node, print, remove
-     * iterate while the queue is not empty
+     * Use a queue system, if the node is null return
+     * Add the node, print the data, remove node
+     * traverse left node, traverse right node
      */
 
     fun traverse(bfsNode: BFSNode?) {
@@ -63,10 +65,8 @@ class DepthFirstSearch {
         queue.remove()
 
         traverse(bfsNode.left)
-        count++
 
         traverse(bfsNode.right)
-        count++
 
     }
 
@@ -99,24 +99,6 @@ class DepthFirstSearch {
         sumTraverse(bfsNode.left, height + 1)
 
         sumTraverse(bfsNode.right, height + 1)
-
-    }
-
-    fun sumTraverse2(bfsNode: BFSNode?, height: Int) {
-
-        if (bfsNode == null) return
-
-        if (height == nodeMap2.size) {
-            nodeMap2[height] = 0
-            sumCount= 0
-        }
-
-        sumCount += bfsNode.data
-        nodeMap2[height] = sumCount
-
-        sumTraverse2(bfsNode.left, height + 1)
-
-        sumTraverse2(bfsNode.right, height + 1)
 
     }
 
