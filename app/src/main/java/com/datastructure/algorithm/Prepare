@@ -62,3 +62,63 @@ Android theory
         traverse(root.right, height + 1)
 
     }
+
+
+    class BFSNode{
+
+     val queue : Queue<BFSNode> = LinkedList<BFSNode>
+
+      data class BFSNode(
+            val data : Int,
+            val left : BFSNode? = null,
+            val right : BFSNode? = null
+        )
+
+       fun createTree() : BFSNode {
+        val a  = BFSNode(5)
+        val b  = BFSNode(4)
+        val c  = BFSNode(1)
+        val d  = BFSNode(2)
+
+        a.left = b
+        a.right = c
+
+        b.left = d
+
+        return a
+
+       }
+
+       //  a
+       // b c
+       //     d
+       //
+       //
+
+       fun traverseTree(node : BFSNode?){
+
+        if (node == null) return
+
+        queue.add(node)
+
+        while(queue.isNotEmpty()){
+
+          queue.remove()?.also{
+
+            print("${it.data} ")
+
+                if (it.left != null){
+                    queue.add(it.left)
+                }
+
+                if (it.right != null){
+                   queue.add(it.right)
+                }
+
+           }
+        }
+
+       }
+
+
+    }

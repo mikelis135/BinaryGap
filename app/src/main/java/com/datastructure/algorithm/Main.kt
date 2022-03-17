@@ -1,9 +1,20 @@
 package com.datastructure.algorithm
 
 fun main() {
-   BinaryGap().start()
+    //  BinaryGap().start()
 
-//    BreadthFirstSearch().start()
+/*    BinaryNode().apply {
+        insert(5)
+        insert(4)
+        insert(6)
+        insert(1)
+        insert(5)
+
+        showNode()
+    }*/
+
+    BreadthFirstSearch().start()
+
 //    DepthFirstSearch().start()
 //    Dijkstra().start()
 //
@@ -23,18 +34,18 @@ fun main() {
 //    val stack = Stack()
 //    stack.push(10)
 
-    val queue = Queue()
-    queue.enqueue(30)
-    queue.enqueue(40)
+    //   val queue = Queue()
+    //   queue.enqueue(30)
+    //   queue.enqueue(40)
 ////    queue.enqueue(50)
 ////    queue.enqueue(60)
 //
 ////    queue.size()
 //    queue.dequeue()
 //    queue.enqueue(10)
-    queue.dequeue()
-    queue.dequeue()
-    queue.show()
+//    queue.dequeue()
+    //   queue.dequeue()
+    //   queue.show()
 
 
 //    val node = reverse.reverse(links)

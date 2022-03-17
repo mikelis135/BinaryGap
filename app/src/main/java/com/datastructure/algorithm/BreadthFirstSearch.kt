@@ -6,6 +6,7 @@ import java.util.Queue
 class BreadthFirstSearch {
 
     val queue: Queue<BFSNode> = LinkedList<BFSNode>()
+    var reverse = ""
 
     data class BFSNode(
         var data: Int,
@@ -35,6 +36,13 @@ class BreadthFirstSearch {
 
         g.left = h
 
+        // breadth first search, layers of algorithms
+        //a/      4
+        //bc/    7    9
+        //def/ 10   2    6
+        //g/               6
+        //h/              2
+
         return a
     }
 
@@ -60,6 +68,7 @@ class BreadthFirstSearch {
             queue.remove().also {
 
                 print("${it?.data} ")
+                reverse = "${it?.data} " + reverse
 
                 if (it?.left != null) {
                     queue.add(it.left)
@@ -72,6 +81,8 @@ class BreadthFirstSearch {
             }
 
         }
+        println()
+        print(reverse)
 
     }
 

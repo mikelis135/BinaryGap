@@ -19,7 +19,7 @@ class BinaryNode {
 
     /**
      * Check if data is not null, if value to insert is less or equal, check if left node null, then create a node there, else insert there
-     * else if value to insert is more check if left node null, then create a node there, else insert there
+     * else if value to insert is more check if right node null, then create a node there, else insert there
      */
 
     fun insert(value: Int) {
