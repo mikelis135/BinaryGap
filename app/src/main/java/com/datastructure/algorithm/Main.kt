@@ -1,8 +1,7 @@
 package com.datastructure.algorithm
 
 fun main() {
-//    BinaryGap().start()
-
+   BinaryGap().start()
 
 //    BreadthFirstSearch().start()
 //    DepthFirstSearch().start()
