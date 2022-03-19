@@ -118,7 +118,30 @@ Android theory
            }
         }
 
+        queue.add(node)
+
+        print("{node.data} ")
+
+        queue.remove()
+
+        traverse(bfsNode.left)
+        traverse(bfsNode.right)
+
        }
 
+    }
+
+    fun sumTraverse(node : BFSNode, height : Int){
+
+        if (node.data == null) return
+
+        if (height == nodeMap.size){
+            nodeMap[height] = listOf()
+        }
+
+        nodeMap[height].add(node.data)
+
+        sumTraverse(node.left, height+1)
+        sumTraverse(node.right, height+1)
 
     }

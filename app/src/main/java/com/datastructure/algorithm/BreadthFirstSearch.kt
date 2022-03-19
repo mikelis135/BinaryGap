@@ -23,6 +23,7 @@ class BreadthFirstSearch {
         val f = BFSNode(6)
         val g = BFSNode(6)
         val h = BFSNode(2)
+        val i = BFSNode(3)
 
         a.left = b
         a.right = c
@@ -33,6 +34,7 @@ class BreadthFirstSearch {
         c.right = f
 
         e.right = g
+        d.right = i
 
         g.left = h
 
@@ -40,7 +42,7 @@ class BreadthFirstSearch {
         //a/      4
         //bc/    7    9
         //def/ 10   2    6
-        //g/               6
+        //ig/    3         6
         //h/              2
 
         return a

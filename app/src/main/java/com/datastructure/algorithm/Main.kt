@@ -1,5 +1,7 @@
 package com.datastructure.algorithm
 
+import com.datastructure.algorithm.LinkedList.GetNodes.getSize
+
 fun main() {
     //  BinaryGap().start()
 
@@ -13,15 +15,18 @@ fun main() {
         showNode()
     }*/
 
-    BreadthFirstSearch().start()
+   // BreadthFirstSearch().start()
 
-//    DepthFirstSearch().start()
-//    Dijkstra().start()
-//
-//    val links = LinkedList()
-//    links.insert(1)
-//    links.insert(2)
-//    links.insert(3)
+    //DepthFirstSearch().start()
+   // Dijkstra().start()
+
+    val links = LinkedList()
+    links.insert(1)
+    links.insert(2)
+    links.insert(3)
+    links.insert(4)
+    links.reverse()
+
 //    links.insert(5)
 //    links.insert(10)
 //    links.reverse()

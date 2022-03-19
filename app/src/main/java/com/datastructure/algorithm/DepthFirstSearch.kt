@@ -22,7 +22,7 @@ class DepthFirstSearch {
         val b = BFSNode(10)
         val c = BFSNode(15)
         val d = BFSNode(5)
-        val e = BFSNode(10)
+        val e = BFSNode(9)
 
         a.left = b
         a.right = c
@@ -30,21 +30,28 @@ class DepthFirstSearch {
         b.left = d
         b.right = e
 
+        // depth first search
+        //a/      5
+        //bc/   10  15
+        //de/ 5   9
+
         return a
     }
+
 
     fun start() {
         val tree = createTree()
 
         traverse(tree)
 
-//        sumTraverse(tree, 0)
-//        println(nodeMap)
-//        println(nodeMap.keys)
-//        println(nodeMap.values)
-//        nodeMap.values.forEach {
-//            println(it.sum())
-//        }
+        sumTraverse(tree, 0)
+        
+        println(nodeMap)
+        println(nodeMap.keys)
+        println(nodeMap.values)
+        nodeMap.values.forEach {
+            println(it.sum())
+        }
 
     }
 
@@ -80,7 +87,7 @@ class DepthFirstSearch {
 
     /**
      * 5 0[5]
-     *  10      15 1[10, 15]
+     *  10      15  1[10, 15]
      *  5    10
      *
      * Depth First style for breadth first output

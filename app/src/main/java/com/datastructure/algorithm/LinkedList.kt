@@ -9,14 +9,10 @@ class LinkedList {
 
     var head: Node? = null
 
-    /**
-     * Create a node off of the data and next node parameter
-     */
-    fun Node.create(data: Int, next: Node?): Node? {
-        this.data = data
-        this.next = next
-        return this
-    }
+    data class Node(
+        var data: Int? = null,
+        var next: Node? = null
+    )
 
     object GetNodes {
         /**
@@ -58,7 +54,7 @@ class LinkedList {
 
         var currentHead = head
 
-        val node = Node().create(data, null)
+        val node = Node(data, null)
 
         head?.let {
 
@@ -87,17 +83,17 @@ class LinkedList {
         var nodePosition = 1
         var currentHead = head
 
-        val node = Node().create(data, null)
+        val node = Node(data, null)
 
         currentHead?.let {
 
             if (position == 0) {
-                node?.next = currentHead
+                node.next = currentHead
                 head = node
             } else {
                 while (currentHead.hasData()) {
                     if (nodePosition == position) {
-                        node?.next = currentHead?.next
+                        node.next = currentHead?.next
                         currentHead?.next = node
                         break
                     }
@@ -177,24 +173,37 @@ class LinkedList {
      * init a prev node and get the head
      * if currentNode has data, get the next node
      * set next node is prev, prev is currentNode and nextNode is currentNode
+     * Reversal is a game of fill in the gap left
+     *
+     *         temp
+     *
+     *    current    next
+     *
+     *    start from temp and move to next then current moves to temp then next moves to current
+     *
+     *
+     *        current
+     *
+     *    temp     next
+     *
      */
 
     fun reverse(): Node? {
 
         if (head == null) return head
-        var prev: Node? = null
+        var temp: Node? = null
 
         var currentNode = head
 
         while (currentNode.hasData()) {
             val nextNode = currentNode?.next
-            currentNode?.next = prev
-            prev = currentNode
+            currentNode?.next = temp
+            temp = currentNode
             currentNode = nextNode
         }
 
-        show(prev)
-        return prev
+        show(temp)
+        return temp
     }
 
 
