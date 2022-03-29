@@ -20,12 +20,12 @@ fun main() {
     //DepthFirstSearch().start()
    // Dijkstra().start()
 
-    val links = LinkedList()
+/*    val links = LinkedList()
     links.insert(1)
     links.insert(2)
     links.insert(3)
     links.insert(4)
-    links.reverse()
+    links.reverse()*/
 
 //    links.insert(5)
 //    links.insert(10)
@@ -36,8 +36,12 @@ fun main() {
 //    links.insert(3)
 //    links.insert(1)
 //    links.insert(13)
-//    val stack = Stack()
-//    stack.push(10)
+/*    val stack = Stack()
+    stack.push(10)
+    stack.push(20)
+    stack.push(30)
+    stack.pop()
+    stack.show()*/
 
     //   val queue = Queue()
     //   queue.enqueue(30)
@@ -56,7 +60,8 @@ fun main() {
 //    val node = reverse.reverse(links)
 //    reverse.show(node)
 
-//    MergeSort().sort(arrayOf(3, 2, 10, 1, 6, -1, 0, 0))
+  //  MergeSort().sort(arrayOf(1, 3, 0, 10, 6, 1, -1, -2))
+    QuickSort().start()
 
 //    val binaryNode = BinaryNode()
 //    binaryNode.insert(2)

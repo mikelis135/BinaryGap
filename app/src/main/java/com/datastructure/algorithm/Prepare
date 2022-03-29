@@ -17,7 +17,7 @@ Android theory
     //Binary Tree, Splay Tree, AVL Tree, Binary Search Tree, Red black tree, Treap, HashSets, HashTables
     //Trie, LRU Cache, Heap, Hashing, Matrix
 
-    //Insertion Sort, Quick Sort, Merge Sort
+    //Insertion Sort, Quick Sort, Merge Sort   ... selection sort, bubble sort
 
     //Dynamic Programming, Bit Manipulation
 
@@ -144,4 +144,92 @@ Android theory
         sumTraverse(node.left, height+1)
         sumTraverse(node.right, height+1)
 
+    }
+
+    //          temp
+    //  current             next
+    //
+
+    if (head == null) return head
+    val temp ?= null
+
+    while (head.hasData()){
+         val nextNode = currentNode.next
+        currentNode.next = temp
+        temp = currentNode
+        currentNode = nextNode
+    }
+
+    show(){
+
+        val currentNode = head
+        while (currentNode.hasData()){
+            print("${currentNode.data} ->")
+            currentNode = currrentNode.next
+        }
+    }
+
+    val index = 0
+    val top = 0
+
+    val queue = arrayList<Int>
+
+    // add value to the end of the arraylist
+
+    enqueue(value){
+       index = top
+       queue =  getQueue(index)
+       queue[index] = value
+       top++
+    }
+
+    // get queue (array), or use list
+
+    fun getQueue(index) {
+      return if (index > top){
+         val temp = arrayList(index+1)
+             copyArray(temp, queue)
+         }else {
+            getQueue()
+         }
+    }
+    copyArray(temp : Array<Int>, queue : Array<Int>, enqueue = 0) : Array<Int>{
+        for (i in 0..temp.size-1-enqueue){
+            temp[i] = queue[i+enqueue]
+        }
+
+        return temp
+    }
+
+    dequeue(){
+        temp = arrayOfNulls<Int>
+        queue = getQueue(temp, queue, 1)
+        index--
+    }
+
+    for (i in numberArray.indices) tempArray[i] = numberArray[i]
+
+    val i = low
+    val j = middle + 1
+    val k = low
+
+    // left < right use left else pass in the value
+
+    while (i <= middle && j <= high){
+
+        if (tempArray[i] <= tempArray[j]){
+                numberArray[k] = tempArray[i]
+                i++
+        }else{
+                numberArray[k] = tempArray[j]
+                j++
+        }
+        k++
+
+    }
+
+    while (i <= middle){
+        numberArray[k] = tempArray[i]
+        k++
+        i++
     }

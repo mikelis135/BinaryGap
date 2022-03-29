@@ -61,7 +61,7 @@ class Stack {
      */
 
     fun show() {
-        for (item in stack) println(item)
+        for (item in stack.size-1 downTo 0 step -1) println("${stack[item]} ->")
     }
 
     /**
